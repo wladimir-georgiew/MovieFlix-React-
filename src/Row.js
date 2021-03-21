@@ -1,24 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import axios from './axios';
-import requests from './requests';
+import './Row.css'
+
+const base_url = "https://image.tmdb.org/t/p/original/";
 
 function Row(props) {
-const [movies, setmovies] = useState([]);
+    const [movies, setMovies] = useState([]);
 
     // Code which runs on a specific condition
     useEffect(() => {
         async function fetchData(){
             const request = await axios.get(props.fetchUrl);
-            console.log(request);
+
+            setMovies(request.data.results)
+
             return request;
         }
+
         fetchData();
-        // if [] run once and don't run again
-    }, []);
+
+        // if deps[] is empty run once and don't run again,
+        // otherwise effect will only activate if the values in the list change.
+    }, [props.fetchUrl]);
+      
 
     return (
-        <div>
+        <div className="row">
             <h2>{props.title}</h2>
+            <div className="row-posters">
+            {movies.map(movie => (
+                <img
+                    key={movie.id}
+                    className={`row-poster ${props.isLargeRow && "row-posterLarge"}`}
+                    src={`${base_url}${
+                        props.isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+                    alt={movie.name}
+                />
+            ))}
+            </div>
         </div>
     );
 }
