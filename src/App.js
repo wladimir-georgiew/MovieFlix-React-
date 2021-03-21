@@ -1,12 +1,14 @@
 import './App.css';
 import Row from "./Row"
 import requests from './requests'
+import Banner from './Banner'
 
 function App() {
   return (
     <div className="app">
       {/* TODO: Navbar */}
       {/* TODO: Hero Banner */}
+      <Banner />
       <Row
         title="MOVIEFLIX ORIGINALS"
         fetchUrl={requests.fetchNetflixOriginals}
