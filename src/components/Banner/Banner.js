@@ -17,12 +17,14 @@ function Banner() {
 
       request.data.results = resultsArr;
       // <-- -->
-
+      
       setMovie(request.data.results[random]);
     }
 
     fetchData();
   }, []);
+
+  console.log(movie);
 
   return (
     <header

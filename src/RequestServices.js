@@ -1,4 +1,7 @@
+import axios from "./axios"
+
 class RequestServices {
+
   GetOnlyMoviesWithImgPath(request) {
     // <-- Gets only the movies with image path -->
     let resultsArr = [];
@@ -17,6 +20,7 @@ class RequestServices {
     return resultsArr;
     // <-- -->
   }
+    
 }
 
 export default new RequestServices();
