@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../axios";
 import "./Row.css";
+import requestService from "../../RequestServices"
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 
@@ -11,20 +12,12 @@ function Row(props) {
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(props.fetchUrl);
-      let resultsArr = [];
 
-      request.data.results.map((m) => {
-        if (
-          m.backdrop_path !== undefined &&
-          m.backdrop_path !== null &&
-          m.poster_path !== undefined &&
-          m.poster_path !== undefined
-        ) {
-          resultsArr.push(m);
-        }
-      });
+      // <-- Gets only the movies with image path -->
+      let resultsArr = requestService.GetOnlyMoviesWithImgPath(request);
 
       request.data.results = resultsArr;
+      // <-- -->
 
       setMovies(request.data.results);
 

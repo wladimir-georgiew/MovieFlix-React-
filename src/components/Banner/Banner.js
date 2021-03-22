@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "../../axios";
 import requests from "../../requests";
 import "./Banner.css";
+import requestService from "../../RequestServices"
 
 function Banner() {
   const [movie, setMovie] = useState([]);
@@ -10,6 +11,12 @@ function Banner() {
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
       let random = Math.floor(Math.random() * request.data.results.length - 1);
+      
+      // <-- Gets only the movies with image path -->
+      let resultsArr = requestService.GetOnlyMoviesWithImgPath(request);
+
+      request.data.results = resultsArr;
+      // <-- -->
 
       setMovie(request.data.results[random]);
     }
