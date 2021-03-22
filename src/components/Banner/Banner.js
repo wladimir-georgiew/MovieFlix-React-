@@ -3,9 +3,20 @@ import axios from "../../axios";
 import requests from "../../requests";
 import "./Banner.css";
 import requestService from "../../RequestServices"
+import YouTube from "react-youtube";
 
 function Banner() {
   const [movie, setMovie] = useState([]);
+  const [trailerUrl, setTrailerUrl] = useState("");
+
+  // Options for react-youtube
+  const opts = {
+    height: "370",
+    width: "40%",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -24,8 +35,19 @@ function Banner() {
     fetchData();
   }, []);
 
-  console.log(movie);
+  const handleClick = async (movie) => {
+    if (trailerUrl) {
+      setTrailerUrl("");
+    } else {
+      let trailerurl = await axios.get(
+        `/tv/${movie.id}/videos?api_key=4c88af88c8fc8e1fcf39be46e4317246`
+      );
+      
+      setTrailerUrl(trailerurl.data.results[0]?.key);
+    }
 
+  };
+  
   return (
     <header
       className="banner"
@@ -43,13 +65,14 @@ function Banner() {
 
         {/* Buttons */}
         <div className="banner-buttons">
-          <button className="banner-button">Play</button>
+          <button className="banner-button" onClick={() => handleClick(movie)}>Play</button>
           <button className="banner-button">My List</button>
         </div>
-
         {/* Description */}
         <h1 className="banner-description">{movie?.overview}</h1>
       </div>
+      
+      {trailerUrl && <YouTube className="react-youtube-player" videoId={trailerUrl} opts={opts} />}
       <div className="banner-fadeBottom" />
     </header>
   );
