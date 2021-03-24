@@ -14,6 +14,19 @@
     background-blend-mode: multiply;
   }
 
+  .buttons-container p{
+    color:white;
+    margin-bottom:15px;
+  }
+  .buttons-container button{
+    width: 100%;
+  }
+
+  .buttons-container p span{
+    color:burlywood;
+    cursor: pointer;
+  }
+
    .login {
     display: flex;
     flex-direction: column;
@@ -23,6 +36,11 @@
     height: 400px;
     padding: 60px 68px 40px;
   }
+  .login-error{
+    color: darkred;
+    font-family:serif
+  }
+
    .login__title {
     margin-bottom: 20px;
     font-size: 2.2rem;
