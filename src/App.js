@@ -1,22 +1,21 @@
 import "./App.css";
+import { Route, Link, NavLink, Redirect, Switch } from "react-router-dom"
+
 import Navigation from "./components/Navigation/Navigation";
-import Banner from "./components/Banner/Banner";
-import Row from "./components/Row/Row";
-import requests from "./requests";
+import LoggedInPage from "./components/LoggedInPage/LoggedInPage"
+import LoggedOutPage from "./components/LoggedOutPage/LoggedOutPage";
 
 function App() {
   return (
     <div className="app">
+
       <Navigation />
-      <Banner />
-      <Row
-        title="MOVIEFLIX ORIGINALS"
-        fetchUrl={requests.fetchNetflixOriginals}
-        isLargeRow={true}
-      />
-      <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
-      <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-      <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
+      <Switch>
+        <Route path="/logged" component={LoggedInPage} />
+
+        <Route path="/" component={LoggedOutPage} />
+      </Switch>
+
     </div>
   );
 }

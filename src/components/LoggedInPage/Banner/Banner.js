@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../axios";
-import requests from "../../requests";
-import "./Banner.css";
-import requestService from "../../RequestServices"
 import YouTube from "react-youtube";
+
+import axios from "../../../axios";
+import requests from "../../../requests";
+import requestService from "../../../RequestServices"
+
+import "./Banner.css";
 
 function Banner() {
   const [movie, setMovie] = useState([]);

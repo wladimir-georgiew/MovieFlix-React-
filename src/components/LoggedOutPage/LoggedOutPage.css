@@ -1,0 +1,27 @@
+/* .body-wrapper_loggedOut {
+    background-color: green;
+  }
+  
+  .body-wrapper_loggedOut{
+    border-top: 8px solid #222222;
+}
+.body-wrapper_loggedOut:nth-child(3){
+    border-bottom: 8px solid #222222;
+}
+.body-wrapper_loggedOut > div{
+   
+    color: white;
+    display: flex;
+    align-items: center;
+    margin: 40px auto;
+    margin-top: 0;
+    width: 80%;
+}
+.body-wrapper_loggedOut h2{
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.body-wrapper_loggedOut h3{
+    font-size: 25px;
+    margin-top: 17px;
+} */
