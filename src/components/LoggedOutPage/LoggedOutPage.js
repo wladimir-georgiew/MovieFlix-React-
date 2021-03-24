@@ -1,12 +1,16 @@
 import React from 'react'
 
-import Hero from "./HeroBanner/Hero"
+import Banner from "./Banner/Banner"
+import ContainerArea from "./Container/ContainerArea"
 import "./LoggedOutPage.css"
 
 function LoggedOutPage() {
     return (
         <div className="body-wrapper_loggedOut">
-            <Hero />
+            
+            <Banner />
+            <ContainerArea />
+            
         </div>
     )
 }

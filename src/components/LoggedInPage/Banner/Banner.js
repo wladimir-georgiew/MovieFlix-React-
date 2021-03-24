@@ -74,8 +74,8 @@ function Banner() {
         <h1 className="banner-description">{movie?.overview}</h1>
       </div>
       
-      {trailerUrl && <YouTube className="react-youtube-player" videoId={trailerUrl} opts={opts} />}
       <div className="banner-fadeBottom" />
+      {trailerUrl && <YouTube className="react-youtube-player" videoId={trailerUrl} opts={opts} />}
     </header>
   );
 }
