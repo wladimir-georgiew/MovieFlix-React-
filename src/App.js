@@ -5,8 +5,7 @@ import "./App.css";
 
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer"
-import LoggedInPage from "./components/LoggedInPage/LoggedInPage"
-import LoggedOutPage from "./components/LoggedOutPage/LoggedOutPage";
+import StartPage from "./components/StartPage"
 
 import LoginPage from "./components/LoggedOutPage/Identity/Login/Login";
 
@@ -104,13 +103,8 @@ function App() {
       <Navigation hasUser={user} handleLogout={handleLogout} />   
 
       <Switch>
-        {user ? (
-          <Route path="/" exact component={LoggedInPage} />
-        ) : (
-          <Route path="/" exact component={LoggedOutPage} />
-        )
-        }
-        <Route path="/auth" render={(props) => !user ? (
+        <Route path="/" exact render={() => <StartPage hasUser={user}/>}/>
+        <Route path="/auth" render={() => !user ? (
           <LoginPage
             email={email}
             setEmail={setEmail}
