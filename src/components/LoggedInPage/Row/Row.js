@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import YouTube from "react-youtube";
 
 import axios from "../../../axios";
-import requestService from "../../../RequestServices"
+import requestService from "../../../RequestServices";
 
 import "./Row.css";
 
 const base_url = "https://image.tmdb.org/t/p/original/";
-
 
 function Row(props) {
   const [movies, setMovies] = useState([]);
@@ -39,11 +38,9 @@ function Row(props) {
     }
 
     fetchData();
-
-    // if deps[] is empty run once and don't run again,
-    // otherwise effect will only activate if the values in the list change.
   }, [props.fetchUrl]);
 
+  //pops the trailer for the movie clicked
   const handleClick = async (movie) => {
     if (trailerUrl) {
       setTrailerUrl("");
@@ -51,10 +48,9 @@ function Row(props) {
       let trailerurl = await axios.get(
         `/tv/${movie.id}/videos?api_key=4c88af88c8fc8e1fcf39be46e4317246`
       );
-      
+
       setTrailerUrl(trailerurl.data.results[0]?.key);
     }
-
   };
 
   return (

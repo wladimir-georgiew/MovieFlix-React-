@@ -31,18 +31,19 @@
   background-color: #111;
 }
 
-.login-btn{
+.login-btn {
   background-color: #e50914;
-    line-height: normal;
-    padding: 7px 17px;
-    font-weight: 400;
-    font-size: 1rem;
-    float: right;
-    color: #fff;
-    text-decoration: none;
-    cursor:pointer;
-    font-family: 'Netflix Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
-    position: fixed;
-    right: 20px;
-    object-fit: contain;
+  line-height: normal;
+  padding: 7px 17px;
+  font-weight: 400;
+  font-size: 1rem;
+  float: right;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Netflix Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: fixed;
+  right: 20px;
+  object-fit: contain;
+  border: none;
 }

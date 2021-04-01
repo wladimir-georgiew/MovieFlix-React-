@@ -19,11 +19,13 @@ function Nav(props) {
 
   return (
     <div className={`nav ${show && "nav-black"}`}>
-      <img
+      <a href="/">
+        <img
           className="nav-logo"
           src="https://fontmeme.com/permalink/210322/9a560530b9f8b713cd79e58e3c4c73e9.png"
           alt="Netflix Logo"
         />
+      </a>
 
       {props.hasUser ? (
         <>
@@ -33,14 +35,17 @@ function Nav(props) {
             alt="Avatar"
           /> */}
           {/* <h4>hello <br /> {props.hasUser.email}</h4> */}
-          <button className="login-btn" onClick={props.handleLogout}>Logout</button>
+          <button className="login-btn" onClick={props.handleLogout}>
+            Logout
+          </button>
         </>
       ) : (
-        <a className="login-btn" href="/auth">Login</a>
+        <a className="login-btn" href="/auth">
+          Login
+        </a>
       )}
     </div>
   );
-
 }
 
 export default Nav;
