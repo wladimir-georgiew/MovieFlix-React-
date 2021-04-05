@@ -1,0 +1,117 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  left: 2.5%;
+  right: 2.5%;
+  height: 80%;
+  width: 90%;
+  border: solid white 1px;
+
+  position: fixed;
+  top: 10%;
+  padding: 20px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+}
+.my-list-button {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: rgb(167, 64, 64);
+  border: none;
+  color: azure;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.my-list-button:hover {
+  background-color: azure;
+  color: rgb(167, 64, 64);
+}
+
+/* youtube player heigth */
+#root
+  > div
+  > div:nth-child(3)
+  > div
+  > div:nth-child(2)
+  > div.modal
+  > div
+  > div {
+  height: 90%;
+}
+#root
+  > div
+  > div:nth-child(3)
+  > div
+  > div:nth-child(3)
+  > div.modal
+  > div
+  > div {
+  height: 90%;
+}
+/* youtube player width */
+#root > div > div:nth-child(3) > div > div:nth-child(2) > div.modal > div {
+  width: 100%;
+}
+#root > div > div:nth-child(3) > div > div:nth-child(3) > div.modal > div {
+  width: 100%;
+}
+
+.close-button {
+  top: 40px;
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  color: transparent;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  line-height: 70px;
+  outline: none;
+  overflow: hidden;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease-in;
+  right: 0;
+  position: absolute;
+}
+
+.close-button::before,
+.close-button::after {
+  background-color: rgb(167, 64, 64);
+  content: "";
+  display: block;
+  height: 3px;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  transition: all 0.2s ease-in;
+  width: 141.4214px;
+  z-index: -1;
+}
+
+.close-button::before {
+  background-color: rgb(167, 64, 64);
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.close-button::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.close-button:hover {
+  color: azure;
+}
+
+.close-button:hover::before,
+.close-button:hover::after {
+  height: 50px;
+  transform: rotate(0deg);
+}
